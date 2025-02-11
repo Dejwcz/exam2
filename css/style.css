@@ -105,6 +105,10 @@ button:hover {
   margin-bottom: 10px;
 }
 
+.message.success {
+  color: green;
+}
+
 /* Responzivní úpravy pro menší obrazovky */
 @media (max-width: 600px) {
   .input-group {

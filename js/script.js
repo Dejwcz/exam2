@@ -71,17 +71,20 @@ shippingMethods.forEach((method) => {
 
 const checkBudget = () => {
   const finalPrice = parseFloat(
-    document.querySelector("#finalPrice").value.replace(" Kč", "")
+    document.querySelector("#finalPrice").value.replace(" Kč", "") || 0
   );
   const availableAmount = parseFloat(
     document.querySelector("#availableAmount").value
   );
 
-  const resultMessage = document.querySelector("#resultMessage");
+  const resultMessage = document.querySelector("#resultMessageLess");
+  const resultMessageMore = document.querySelector("#resultMessageMore");
   if (availableAmount >= finalPrice) {
     resultMessage.classList.add("hidden");
+    resultMessageMore.classList.remove("hidden");
   } else {
     resultMessage.classList.remove("hidden");
+    resultMessageMore.classList.add("hidden");
   }
 };
 
@@ -99,8 +102,6 @@ email.addEventListener("blur", (e) => {
   }
 });
 email.addEventListener("input", (e) => {
-  console.log("e.target.value", e.target.value);
-
   const regex = /[^a-zA-Z0-9._@\-]/g;
   e.target.value = e.target.value.replace(regex, "");
 });
