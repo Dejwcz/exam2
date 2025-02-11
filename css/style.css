@@ -1,0 +1,119 @@
+/* Reset základních stylů */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Tělo stránky s pozadím – nastavte správnou cestu k obrázku */
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif; /* veselý font */
+  background: url("../img/background3.webp") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Kontejner formuláře – centrování a stylizace */
+form#orderForm {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* světlé pozadí pro lepší čitelnost */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  text-align: left; /* obsah formuláře bude zarovnán doleva */
+}
+
+/* Skupiny vstupních polí – label před inputem */
+.input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  flex: 0 0 180px; /* fixní šířka pro label */
+  margin-right: 10px;
+  font-weight: bold;
+  color: #2a7f62; /* jarní, svěží barva */
+}
+
+.input-group input,
+.input-group select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Fieldset – lehce zakulacené rohy a světlé pozadí */
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f9fff9; /* světlá jarní barva */
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #2a7f62;
+}
+
+/* Tlačítka – veselý design */
+button {
+  background-color: #2a7f62;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0f382c;
+}
+
+/* Skrytý prvek */
+.hidden {
+  display: none;
+}
+
+.message {
+  color: red;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Responzivní úpravy pro menší obrazovky */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-group label {
+    margin-bottom: 5px;
+    flex: none;
+  }
+}

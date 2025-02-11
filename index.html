@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs  ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objednávka</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h1>Objednávka</h1>
+    <form id="orderForm">
+      <!-- 1. Roletové menu pro výběr krmiva -->
+      <div class="input-group">
+        <label for="feedSelect">Vyberte krmivo:</label>
+        <select id="feedSelect">
+          <option value="150">Psí žrádlo - 150 Kč/kg</option>
+          <option value="120">Kočičí žrádlo - 120 Kč/kg</option>
+          <option value="50">Žrádlo pro rybičky - 50 Kč/kg</option>
+          <option value="800">Žrádlo pro tygra - 800 Kč/kg</option>
+        </select>
+      </div>
+
+      <!-- 2. Input pro počet kilogramů a zobrazení základní ceny krmiva -->
+      <div class="input-group">
+        <label for="quantity">Množství (kg):</label>
+        <input type="number" id="quantity" min="0" step="1" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="basePrice">Celková cena krmiva (bez vlastností):</label>
+        <input type="text" id="basePrice" readonly />
+      </div>
+
+      <!-- 3. Checkboxy pro volitelné vlastnosti krmiva -->
+      <fieldset>
+        <legend>Volitelné vlastnosti krmiva</legend>
+        <div>
+          <input type="checkbox" id="bio" />
+          <label for="bio">Bio kvalita (+30 % ze základní ceny)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="premium" />
+          <label for="premium"
+            >Extra premium kvalita (+50 % ze základní ceny)</label
+          >
+        </div>
+        <div>
+          <input type="checkbox" id="lowQuality" />
+          <label for="lowQuality"
+            >Extra nekvalita pro chudé (-15 % ze základní ceny)</label
+          >
+        </div>
+        <div>
+          <input type="checkbox" id="giftBoxing" />
+          <label for="giftBoxing">Dárkové balení (+500 Kč)</label>
+        </div>
+      </fieldset>
+
+      <!-- 4. Radiobuttony pro výběr typu dopravy -->
+      <fieldset>
+        <legend>Typ dopravy</legend>
+        <div>
+          <input
+            type="radio"
+            id="osobni"
+            name="shipping"
+            value="osobni"
+            checked
+          />
+          <label for="osobni">Osobní odběr (bez příplatku)</label>
+        </div>
+        <div>
+          <input type="radio" id="kuryr" name="shipping" value="kuryr" />
+          <label for="kuryr"
+            >Firemní kurýr (+10 % z aktuální ceny krmiva)</label
+          >
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="ceskaPosta"
+            name="shipping"
+            value="ceskaPosta"
+          />
+          <label for="ceskaPosta">Česká pošta (+250 Kč)</label>
+        </div>
+      </fieldset>
+      <!-- 5. Zobrazení výsledné ceny, zadání rozpočtu a tlačítko pro kontrolu -->
+      <div class="input-group">
+        <label for="finalPrice">Výsledná cena objednávky:</label>
+        <input type="text" id="finalPrice" readonly />
+      </div>
+      <div class="input-group">
+        <label for="availableAmount">Částka k utracení:</label>
+        <input type="number" id="availableAmount" min="0" step="any" />
+        <button type="button" id="checkButton">Zkontrolovat</button>
+      </div>
+      <div id="resultMessage" class="hidden message">
+        Nemáte dost prostředků
+      </div>
+
+      <!-- 6. Pole pro kontaktní e-mail -->
+      <div class="input-group">
+        <label for="email"> Kontaktní e-mail: </label>
+        <input
+          type="email"
+          id="email"
+          pattern="[A-Za-z0-9]+@*[A-Za-z0-9]+\.[A-Za-z]+"
+          required
+        />
+      </div>
+      <div id="emailError" class="hidden message">Zadejte platný e-mail</div>
+    </form>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
